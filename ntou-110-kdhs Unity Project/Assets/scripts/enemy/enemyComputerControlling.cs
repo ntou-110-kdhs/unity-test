@@ -21,8 +21,8 @@ public class enemyComputerControlling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        focus = detect.Alert();
-        if (focus == null)//return null
+        Interactable interactable = detect.Alert();
+        if (interactable == null)//return null
         {
             RemoveFocus();
             /*???*/
@@ -34,8 +34,8 @@ public class enemyComputerControlling : MonoBehaviour
         }
         else//if exist
         {
-            Debug.Log("focus:" + focus);
-            SetFocus(focus);
+            Debug.Log("interactable:" + interactable);
+            SetFocus(interactable);
             /*???*/
             //if (/*???*/false)
             //{
@@ -64,6 +64,8 @@ public class enemyComputerControlling : MonoBehaviour
             Debug.Log("motor.FollowTarget:" + newFoucs.name);
             motor.FollowTarget(newFoucs);
         }
+        Debug.Log("newFoucs.name:" + newFoucs.name);
+        Debug.Log("foucs.name:" + focus.name);
         newFoucs.OnFocused(transform);
     }
     void RemoveFocus()
